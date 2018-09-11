@@ -66,8 +66,8 @@ const ButtonIcon = styled(Icon)`
   margin-left: 10px;
 `;
 
-const Button = ({ icon, children, ...props }) => (
-  <Wrapper {...props}>
+const Button = ({ icon, secondary, children, ...props }) => (
+  <Wrapper secondary={secondary ? 1 : 0} {...props}>
     <span>{children}</span>
     {icon && <ButtonIcon type={icon} />}
   </Wrapper>

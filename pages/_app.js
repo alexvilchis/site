@@ -16,6 +16,7 @@ require('../static/styles/prism.css');
 require('../static/styles/tooltips.css');
 require('../static/styles/codemirror.css');
 
+const FULLSIZE_PAGES = ['/repl', '/page-wrapping'];
 
 class MyApp extends App {
   static async getInitialProps ({ Component, router, ctx }) {
@@ -30,7 +31,7 @@ class MyApp extends App {
 
   render () {
     const { Component, pageProps, router } = this.props;
-    const AppFrame = router.pathname === '/repl' ? 'div' : Frame;
+    const AppFrame = FULLSIZE_PAGES.includes(router.pathname) ? 'div' : Frame;
 
     return (
       <Container>
